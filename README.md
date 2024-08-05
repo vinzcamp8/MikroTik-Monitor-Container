@@ -1,24 +1,26 @@
-# MikroTik Monitoring with Container feature
+# MikroTik Monitoring with Grafana Dashboard
 Aiming to have a beautiful Grafana Dashboard to monitor a MikroTik device?\
-You are in the right place!
+You are in the right place, [see preview at the end of the page](#dashboard-screen).
 
-Monitoring  MikroTik using 3 Containers (SNMP Exporter + Prometheus + Grafana).\
-[MikroTik Container](https://help.mikrotik.com/docs/display/ROS/Container) is available in RouterOS from v7.\
-Using it to monitor the MikroTik itself reduce the costs and complexity derived from deploying a new dedicated machine for the same objective.\
+In this project we will use MikroTik Container to monitor the MikroTik itself.\
+Using it reduce the costs and complexity derived from using/deploying a dedicated machine for the same objective.
 
-[SNMP Exporter](https://hub.docker.com/r/prom/snmp-exporter), [Prometheus](https://hub.docker.com/r/prom/prometheus) and [Grafana](https://hub.docker.com/r/grafana/grafana) are a well known stack of tools that enable to monitor any type of device with appropriate configurations.\ 
-In this scenario the metrics are retrieved in real time with SNMP, Prometheus act as timeseries database with query and Grafana had that sweet dashboards.\
+DISCLAIMER: [MikroTik Container](https://help.mikrotik.com/docs/display/ROS/Container) is a MikroTik feature available from RouterOS v7, you can [update](https://help.mikrotik.com/docs/display/ROS/Upgrading+and+installation#:~:text=using%20this%20method.-,Manual%20upgrade%20process,-First%20step%20%2D%20visit) yours if lower.
 
-In my configuration I have a MikroTik RouterBoard L009UiGS (ARM) with ROS v7.12 but the steps are very general and almost equal for every version.\ 
+We can monitor MikroTik using 3 Containers (SNMP Exporter + Prometheus + Grafana).\
+[SNMP Exporter](https://hub.docker.com/r/prom/snmp-exporter), [Prometheus](https://hub.docker.com/r/prom/prometheus) and [Grafana](https://hub.docker.com/r/grafana/grafana) are a well known stack of tools that enable to monitor any type of device with appropriate configurations.\
+In this scenario the metrics are retrieved in real time with SNMP, Prometheus act as timeseries database with query and Grafana had that sweet dashboards.
+
+In my configuration I have a MikroTik RouterBoard L009UiGS (ARM) with ROS v7.12 but the steps are very general and almost equal for every version.
 # Setup steps
-First of all Enable SNMP on MikroTik in IP->SNMP, tick the box and leave others as default.\
+First of all Enable SNMP on MikroTik in IP->SNMP, tick the box and leave others as default.
 ## 1. MikroTik activate Container feature
 First of all we have to activate the *Container* package on MikroTik, to default it is disabled.\
 To check if it is also activated in WinBox, open *New Terminal* and run: 
 `system/device-mode/pr`\
 After the mode (e.g. `mode: enterprise`) should be compare the string `container: yes`\
 If you have already activated it, go next to the step 2.\
-Else if not you have to **download, install and activate the package**.\
+Else if not you have to **download, install and activate the package**.
 
 1. **Download**
 	- Go to https://mikrotik.com/download/archive
@@ -68,7 +70,7 @@ Note: After each following step press before *Apply* and then *OK* buttons.
 	- (In order to Bridge all the interfaces on the same subnet LAN)
 
 ## 3. Configuration files
-Prepare configuration files for containers.\
+Prepare configuration files for containers.
 1. Download the 3 folders (grafana, prometheus and snmp) from the repository.
 2. Modify files as follow:
 	- grafana/provisioning/datasource.yml
@@ -126,7 +128,7 @@ First of all we have to to set the Environment variables and Mount path to volum
 
 ## 5. Start Container
 After all you can Start and Stop the container using the respective button.\
-Start all containers in order (SNMP Exporter, Prometheus and Grafana) and enjoy.\
+Start all containers in order (SNMP Exporter, Prometheus and Grafana) and enjoy.
 
 ![containers](container_image.png)
 ### Link 
@@ -152,3 +154,6 @@ Thanks [@IgorKha](https://github.com/IgorKha/) for [configuration files](https:/
 
 Special thanks to my MikroTik teacher @rolando.
 
+## Dashboard screen
+Screen by [@IgorKha](https://github.com/IgorKha/)
+![dashboard](https://github.com/IgorKha/Grafana-Mikrotik/blob/master/readme/screen.png)
