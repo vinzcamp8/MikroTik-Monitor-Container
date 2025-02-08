@@ -1,8 +1,8 @@
 # MikroTik Monitoring with Grafana Dashboard
-Aiming to have a beautiful Grafana Dashboard to monitor a MikroTik device?\
-You are in the right place, [see preview at the end of the page](#dashboard-screen).
+Grafana Dashboard in MikroTik Container to monitor a MikroTik device (using SNMP).\
+[See preview images](#dashboard-screen).
 
-In this project we will use MikroTik Container to monitor the MikroTik itself.\
+In this project we will use MikroTik Container to monitor the MikroTik itself (using SNMP).\
 Using it reduce the costs and complexity derived from using/deploying a dedicated machine for the same objective.
 
 DISCLAIMER: [MikroTik Container](https://help.mikrotik.com/docs/display/ROS/Container) is a MikroTik feature available from RouterOS v7, you can [update](https://help.mikrotik.com/docs/display/ROS/Upgrading+and+installation#:~:text=using%20this%20method.-,Manual%20upgrade%20process,-First%20step%20%2D%20visit) yours if lower.
