@@ -10,7 +10,7 @@ A self-contained monitoring stack (Grafana + Prometheus + SNMP Exporter) deploye
 
 * [Overview](#overview)
 * [Prerequisites](#prerequisites)
-* [Step-by-Step Setup](#step-by-step-setup)
+* [Setup](#step-by-step-setup)
   * [1. Enable SNMP on MikroTik](#1-enable-snmp-on-mikrotik)
   * [2. Enable Container Support](#2-enable-container-support)
   * [3. Configure VETH and Network](#3-configure-veth-and-network)
@@ -46,7 +46,7 @@ All components run within the MikroTik device itself, avoiding the cost and comp
 
 ---
 
-## Step-by-Step Setup
+## Setup
 
 ### 1. Enable SNMP on MikroTik
 
