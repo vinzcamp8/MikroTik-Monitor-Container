@@ -129,7 +129,7 @@ Ensure the output includes `container: yes`.
      ```
    * **Prometheus Config** (`prometheus/prometheus.yml`):
 
-     * `static_configs.targets`: use your MikroTik LAN IP
+     * `static_configs.targets`: _use your MikroTik LAN IP_
      * `relabel_configs.replacement`: `192.168.50.101:9116` (change it according with your snmp_exporter VETH IP)
 3. Upload `grafana/`, `prometheus/`, `snmp/` folders to MikroTik via **Files**.
 
@@ -172,8 +172,8 @@ Ensure the output includes `container: yes`.
 | Container         | Remote Image                       | Interface            | Others                                                                |
 | ----------------- | --------------------------- | --------------- | -------------------------------------------------------------------- |
 | **Grafana**       | `grafana/grafana:9.1.0`     | `grafana`       | Envslist `grafana`, Mounts `grafana`, Root Dir `/usb1/grafana_dir`                        |
-| **Prometheus**    | `prom/prometheus:latest`    | `prometheus`    | Cmd: `--config.file=/etc/prometheus/prometheus.yml`, Mounts `prometheus`, Root Dir `/usb1/prometheus_dir`|
-| **SNMP Exporter** | `prom/snmp-exporter:latest` | `snmp_exporter` | Cmd: `--config.file=/etc/snmp_exporter/snmp.yml`, Mounts `snmp`, Root Dir `/usb1/snmp_dir` |
+| **Prometheus**    | `prom/prometheus:2.53.0`    | `prometheus`    | Cmd: `--config.file=/etc/prometheus/prometheus.yml`, Mounts `prometheus`, Root Dir `/usb1/prometheus_dir`|
+| **SNMP Exporter** | `prom/snmp-exporter:0.26.0` | `snmp_exporter` | Cmd: `--config.file=/etc/snmp_exporter/snmp.yml`, Mounts `snmp`, Root Dir `/usb1/snmp_dir` |
 
 > `Root Dir` is customizable e.g. path to an external usb drive attached to MikroTik
 
